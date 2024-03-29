@@ -9,7 +9,7 @@ public class InventorySlot : MonoBehaviour
     private Color Base;
     private Color Selected;
     public int SlotID;
-    private Texture2D texture;
+    public Texture2D texture;
     private int Amount;
     public InventoryManagment InventoryManagment;
     public void Init(int ID, Texture2D txture, int amount)

@@ -7,6 +7,9 @@
 		<type fullname="EndlessTerrain" preserve="nothing"/>
 		<type fullname="HoldedItem" preserve="nothing"/>
 		<type fullname="InventoryManagment" preserve="nothing"/>
+		<type fullname="InventorySlot" preserve="nothing"/>
+		<type fullname="ItemDrag" preserve="nothing"/>
+		<type fullname="MainInventory" preserve="nothing"/>
 		<type fullname="MainMenu" preserve="nothing"/>
 		<type fullname="MapDisplay" preserve="nothing"/>
 		<type fullname="MapGenerator" preserve="nothing"/>
@@ -88,6 +91,7 @@
 	</assembly>
 	<assembly fullname="UnityEngine.UI">
 		<type fullname="UnityEngine.EventSystems.EventSystem" preserve="nothing"/>
+		<type fullname="UnityEngine.EventSystems.EventTrigger" preserve="nothing"/>
 		<type fullname="UnityEngine.EventSystems.StandaloneInputModule" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Button" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.CanvasScaler" preserve="nothing"/>

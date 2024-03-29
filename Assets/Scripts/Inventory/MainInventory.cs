@@ -15,5 +15,13 @@ public class MainInventory : MonoBehaviour
         {
             child.gameObject.SetActive(InventoryOpen);
         }
+        if (InventoryOpen){
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else{
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

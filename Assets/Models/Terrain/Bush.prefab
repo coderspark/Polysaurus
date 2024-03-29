@@ -98,4 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - Cotton
-  - Berries
+  - Strawberry
+  - Banana

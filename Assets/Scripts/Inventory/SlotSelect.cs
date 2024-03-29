@@ -19,7 +19,6 @@ public class SlotSelect : MonoBehaviour
         SlotID = ID;
         texture = txture;
         Amount = amount;
-        
     }
     void Update()
     {
@@ -29,7 +28,7 @@ public class SlotSelect : MonoBehaviour
         {
             if (child.gameObject.name == "Item")
             {
-                child.gameObject.GetComponent<RawImage>().texture = texture;
+                child.gameObject.GetComponent<RawImage>().texture = InventoryManagment.inventory[SlotID + 26].Icon;
             }
             if(child.gameObject.name == "Outline")
             {

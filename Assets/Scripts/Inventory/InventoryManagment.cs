@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class InventoryManagment : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class InventoryManagment : MonoBehaviour
     public int maxItems;
     void Start()
     {
+        // set the hotbar to the last 9 slots of the inventory
+        hotbar = inventory.TakeLast(9).ToArray();
         Hotbar();
         Inventory();
     }
@@ -33,18 +36,19 @@ public class InventoryManagment : MonoBehaviour
     }
     void Inventory()
     {
-        for (int l = 0; l < 3; l += 1)
+        for (int l = 0; l < 4; l += 1)
             for (int i = 0; i < 9; i += 1)
             {
                 // create a new childed object of the slot
-                GameObject slot = Instantiate(MISlot, new Vector3(400 + i * 132, 100 + (3 - l) * 132, 0), Quaternion.identity);
-                slot.GetComponent<InventorySlot>().Init(i + 1 + l * 9, nullt, inventory[i + (l * 9)].Amount);
+                GameObject slot = Instantiate(MISlot, new Vector3(400 + i * 132, 300 + (3 - l) * 132, 0), Quaternion.identity);
+                slot.GetComponent<InventorySlot>().Init(i + 1 + l*9, nullt, inventory[i + (l * 9)].Amount);
                 slot.transform.SetParent(GameObject.Find("MainInv").transform);
-                slot.name = "HotBarSlot " + (i + 1) + " Row " + (l + 1);
+                slot.name = "Slot " + (i + 1) + " Row " + (l + 1);
             }
     }
     void Update()
     {
+        hotbar = inventory.TakeLast(9).ToArray();
         // check inputs 1 through 9 and set selected slot to that
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -91,36 +95,42 @@ public class InventoryManagment : MonoBehaviour
             child.GetComponent<InventorySlot>().Init(child.GetComponent<InventorySlot>().SlotID, inventory[child.GetComponent<InventorySlot>().SlotID - 1].Icon, inventory[child.GetComponent<InventorySlot>().SlotID - 1].Amount);
         }
     }
+    public void SwapItems(int slot1, int slot2)
+    {
+        Slot temp = inventory[slot1 - 1];
+        inventory[slot1 - 1] = inventory[slot2 - 1];
+        inventory[slot2 - 1] = temp;
+    }
     public void AddItem(string name, int amount)
     {
-        for (int i = 0; i < hotbar.Length; i++)
+        for (int i = 0; i < inventory.Length; i++)
         {
-            if (hotbar[i].Name == name && hotbar[i].Amount < maxItems)
+            if (inventory[i].Name == name && inventory[i].Amount < maxItems)
             {
-                hotbar[i].Amount += amount;
+                inventory[i].Amount += amount;
                 // check if the amount is greater than 64
-                if (hotbar[i].Amount > maxItems)
+                if (inventory[i].Amount > maxItems)
                 {
                     // calculate the leftover amount
-                    int leftoverAmount = hotbar[i].Amount - maxItems;
+                    int leftoverAmount = inventory[i].Amount - maxItems;
                     // set the amount to the max per slot
-                    hotbar[i].Amount = maxItems;
+                    inventory[i].Amount = maxItems;
 
                     // find the first open slot
-                    for (int j = 0; j < hotbar.Length; j++)
+                    for (int j = 0; j < inventory.Length; j++)
                     {
-                        if (hotbar[j].Name == "")
+                        if (inventory[j].Name == "")
                         {
                             // add the leftover amount to the open slot
-                            hotbar[j].Name = name;
+                            inventory[j].Name = name;
                             for (int k = 0; k < itemDataBase.Length; k++)
                             {
                                 if (itemDataBase[k].Name == name)
                                 {
-                                    hotbar[j].Icon = itemDataBase[k].Icon;
+                                    inventory[j].Icon = itemDataBase[k].Icon;
                                 }
                             }
-                            hotbar[j].Amount = leftoverAmount;
+                            inventory[j].Amount = leftoverAmount;
                             return;
                         }
                     }
@@ -128,19 +138,19 @@ public class InventoryManagment : MonoBehaviour
                 return;
             }
         }
-        for (int i = 0; i < hotbar.Length; i++)
+        for (int i = 0; i < inventory.Length; i++)
         {
-            if (hotbar[i].Name == "")
+            if (inventory[i].Name == "")
             {
-                hotbar[i].Name = name;
+                inventory[i].Name = name;
                 for (int k = 0; k < itemDataBase.Length; k++)
                 {
                     if (itemDataBase[k].Name == name)
                     {
-                        hotbar[i].Icon = itemDataBase[k].Icon;
+                        inventory[i].Icon = itemDataBase[k].Icon;
                     }
                 }
-                hotbar[i].Amount = amount;
+                inventory[i].Amount = amount;
                 return;
             }
         }

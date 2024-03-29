@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     // movement
     void Movement()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
         movestate = "Idle";
         if(Input.GetKey(KeyCode.LeftShift))
         {

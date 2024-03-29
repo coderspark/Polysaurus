@@ -8,6 +8,9 @@ ScriptsOnlyBuild:
     - EndlessTerrain
     - HoldedItem
     - InventoryManagment
+    - InventorySlot
+    - ItemDrag
+    - MainInventory
     - MainMenu
     - MapDisplay
     - MapGenerator
@@ -40,6 +43,7 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -54,7 +58,6 @@ ScriptsOnlyBuild:
     - .Dino
     - .EndlessTerrain/LODInfo
     - .IT
-    - .Item
     - .Resource
     - .Slot
     - .TerrainType
@@ -83,6 +86,8 @@ ScriptsOnlyBuild:
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.EventSystems.EventTrigger/Entry
+    - UnityEngine.EventSystems.EventTrigger/TriggerEvent
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
@@ -115,6 +120,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: OptionsMenu
     methodName: SetVolume
+  - assembly: Assembly-CSharp
+    fullTypeName: ItemDrag
+    methodName: Drag
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenu
     methodName: Resume
@@ -170,57 +178,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17192}
     - Class: 114
-      Script: {instanceID: 17384}
+      Script: {instanceID: 17252}
     - Class: 114
-      Script: {instanceID: 17404}
+      Script: {instanceID: 17386}
     - Class: 114
-      Script: {instanceID: 17704}
+      Script: {instanceID: 17406}
     - Class: 114
-      Script: {instanceID: 18074}
+      Script: {instanceID: 17706}
     - Class: 114
-      Script: {instanceID: 18192}
+      Script: {instanceID: 18076}
     - Class: 114
-      Script: {instanceID: 18396}
+      Script: {instanceID: 18194}
     - Class: 114
-      Script: {instanceID: 18680}
+      Script: {instanceID: 18398}
     - Class: 114
-      Script: {instanceID: 19384}
+      Script: {instanceID: 18682}
     - Class: 114
-      Script: {instanceID: 19430}
+      Script: {instanceID: 18788}
     - Class: 114
-      Script: {instanceID: 19586}
+      Script: {instanceID: 18924}
     - Class: 114
-      Script: {instanceID: 19616}
+      Script: {instanceID: 19390}
     - Class: 114
-      Script: {instanceID: 20606}
+      Script: {instanceID: 19436}
     - Class: 114
-      Script: {instanceID: 20654}
+      Script: {instanceID: 19592}
     - Class: 114
-      Script: {instanceID: 20858}
+      Script: {instanceID: 19622}
     - Class: 114
-      Script: {instanceID: 20916}
+      Script: {instanceID: 20612}
     - Class: 114
-      Script: {instanceID: 21048}
+      Script: {instanceID: 20660}
     - Class: 114
-      Script: {instanceID: 21174}
+      Script: {instanceID: 20864}
     - Class: 114
-      Script: {instanceID: 21326}
+      Script: {instanceID: 20922}
     - Class: 114
-      Script: {instanceID: 21616}
+      Script: {instanceID: 21054}
     - Class: 114
-      Script: {instanceID: 21634}
+      Script: {instanceID: 21180}
     - Class: 114
-      Script: {instanceID: 21650}
+      Script: {instanceID: 21332}
     - Class: 114
-      Script: {instanceID: 22132}
+      Script: {instanceID: 21622}
     - Class: 114
-      Script: {instanceID: 22302}
+      Script: {instanceID: 21640}
     - Class: 114
-      Script: {instanceID: 22836}
+      Script: {instanceID: 21656}
     - Class: 114
-      Script: {instanceID: 25966}
+      Script: {instanceID: 21784}
     - Class: 114
-      Script: {instanceID: 31092}
+      Script: {instanceID: 22140}
+    - Class: 114
+      Script: {instanceID: 22310}
+    - Class: 114
+      Script: {instanceID: 22368}
+    - Class: 114
+      Script: {instanceID: 22370}
+    - Class: 114
+      Script: {instanceID: 22846}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -283,31 +299,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17192}
     - Class: 114
-      Script: {instanceID: 17776}
+      Script: {instanceID: 17778}
     - Class: 114
-      Script: {instanceID: 18192}
+      Script: {instanceID: 18194}
     - Class: 114
-      Script: {instanceID: 18396}
+      Script: {instanceID: 18398}
     - Class: 114
-      Script: {instanceID: 18680}
+      Script: {instanceID: 18682}
     - Class: 114
-      Script: {instanceID: 19666}
+      Script: {instanceID: 19672}
     - Class: 114
-      Script: {instanceID: 19912}
+      Script: {instanceID: 19918}
     - Class: 114
-      Script: {instanceID: 20536}
+      Script: {instanceID: 20542}
     - Class: 114
-      Script: {instanceID: 20606}
+      Script: {instanceID: 20612}
     - Class: 114
-      Script: {instanceID: 21174}
+      Script: {instanceID: 21180}
     - Class: 114
-      Script: {instanceID: 21326}
+      Script: {instanceID: 21332}
     - Class: 114
-      Script: {instanceID: 21650}
+      Script: {instanceID: 21656}
     - Class: 114
-      Script: {instanceID: 22104}
+      Script: {instanceID: 22112}
     - Class: 114
-      Script: {instanceID: 22348}
+      Script: {instanceID: 22356}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -349,6 +365,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 3b6f845fd9f01f11723f41e9fdef2552
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RockBehaviour
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -435,7 +457,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreakMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ff3bf3a6c73d7be2d81eeabc5ef34dfb
+      Hash: f9da66140b49749cf2adce8091136ab5
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InventoryManagment
@@ -561,6 +583,12 @@ ScriptsOnlyBuild:
     className: UnityOnMouseDragMessageListener
   - hash:
       serializedVersion: 2
+      Hash: b68e09e0e1ecc9824ff99d5d74db70dd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Bush
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -589,6 +617,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
     className: ScriptMachine
+  - hash:
+      serializedVersion: 2
+      Hash: 08fd83523dea6253d874b2d2ac48432b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ItemDrag
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -993,6 +1027,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: fe0aa61c23ff9a1b0725c596fb0ff98f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: InventorySlot
+  - hash:
+      serializedVersion: 2
       Hash: f4f39b64f410b0cd98b49df4bad0eb7e
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1107,6 +1147,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: e769c2cbfd4b8cc5c9512928f0e45908
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MainInventory
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -1219,18 +1265,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 3b6f845fd9f01f11723f41e9fdef2552
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RockBehaviour
-  - hash:
-      serializedVersion: 2
-      Hash: 3b6f845fd9f01f11723f41e9fdef2552
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Bush
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

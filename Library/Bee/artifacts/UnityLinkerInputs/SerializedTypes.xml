@@ -3,7 +3,6 @@
 		<type fullname=".Dino" preserve="nothing" serialized="true"/>
 		<type fullname=".EndlessTerrain/LODInfo" preserve="nothing" serialized="true"/>
 		<type fullname=".IT" preserve="nothing" serialized="true"/>
-		<type fullname=".Item" preserve="nothing" serialized="true"/>
 		<type fullname=".Resource" preserve="nothing" serialized="true"/>
 		<type fullname=".Slot" preserve="nothing" serialized="true"/>
 		<type fullname=".TerrainType" preserve="nothing" serialized="true"/>
@@ -36,6 +35,8 @@
 		<type fullname="UnityEngine.TextCore.GlyphRect" preserve="nothing" serialized="true"/>
 	</assembly>
 	<assembly fullname="UnityEngine.UI">
+		<type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true"/>
+		<type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true"/>
 		<type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true"/>
