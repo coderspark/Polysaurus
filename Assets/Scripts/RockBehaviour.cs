@@ -6,6 +6,8 @@ public class RockBehaviour : MonoBehaviour
 {
     Transform player;
     public string Item;
+    public int Min;
+    public int Max;
     void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -14,7 +16,7 @@ public class RockBehaviour : MonoBehaviour
     {
         if (Vector3.Distance(player.position, transform.position) < 2 && Input.GetKeyDown(KeyCode.E))
         {
-            GameObject.Find("Inventory").GetComponent<InventoryManagment>().AddItem(Item, Random.Range(1, 3));
+            GameObject.Find("Inventory").GetComponent<InventoryManagment>().AddItem(Item, Random.Range(Min, Max));
             Destroy(gameObject);
         }
     }

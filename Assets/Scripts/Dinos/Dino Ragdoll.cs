@@ -5,17 +5,32 @@ using UnityEngine;
 public class DinoRagdoll : MonoBehaviour
 {
     public GameObject Rig;
+    GameObject spineBleedSpot;
     public IEnumerator Ragdoll()
     {
+        // Remove the dinos current collider
+        Destroy(GetComponent<CapsuleCollider>());
         //get all the bones in the rig
-        List<GameObject> Bones = new List<GameObject>();
-        foreach (GameObject bone in Bones)
+        SkinnedMeshRenderer smr = this.GetComponentInChildren<SkinnedMeshRenderer>();
+        Transform[] thisBones = smr.bones;
+        foreach(Transform bone in thisBones)
         {
-            Rigidbody rb = bone.AddComponent<Rigidbody>();
-            bone.AddComponent<BoxCollider>();
+            if (bone.name == "BleedPoint"){
+                spineBleedSpot = bone.gameObject;
+            }
+            bone.gameObject.AddComponent<BoxCollider>();
+            bone.gameObject.AddComponent<Rigidbody>();
+            bone.gameObject.GetComponent<BoxCollider>().size = new Vector3(0.0017f, 0.0017f, 0.0017f);
+            bone.gameObject.GetComponent<Rigidbody>().AddForce(Random.Range(-150, 150), Random.Range(200, 400), Random.Range(-150, 150));
         }
-        yield return new WaitForSeconds(5);
-        foreach (GameObject bone in Bones)
+        for(int i = 0; i < Random.Range(100, 300); i++)
+        {
+            if(Random.Range(0, 40) == 1){
+                Game.Bleed(spineBleedSpot.transform.position, new Vector3(Random.Range(-45, 45), 0, Random.Range(-45, 45)));
+            }
+            yield return new WaitForSeconds(0.1f);   
+        }
+        foreach(Transform bone in thisBones)
         {
             Destroy(bone.GetComponent<Rigidbody>());
             Destroy(bone.GetComponent<BoxCollider>());

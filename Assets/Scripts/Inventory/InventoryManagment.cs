@@ -12,6 +12,7 @@ public class InventoryManagment : MonoBehaviour
     public Color SelectedColor;
     public Slot[] inventory;
     public Slot[] hotbar;
+    public craftableItem[] craftableItems;
     public IT[] itemDataBase;
     public Texture2D nullt;
     public bool draggingitem = false;
@@ -45,6 +46,19 @@ public class InventoryManagment : MonoBehaviour
                 slot.transform.SetParent(GameObject.Find("MainInv").transform);
                 slot.name = "Slot " + (i + 1) + " Row " + (l + 1);
             }
+    }
+    void Craftableitems()
+    {
+        for (int l = 0; l < 4; l += 1){
+            for (int i = 0; i < 9; i += 1)
+            {
+                // create a new childed object of the slot
+                GameObject slot = Instantiate(MISlot, new Vector3(400 + i * 66, 300 + (3 - l) * 66, 0), Quaternion.identity);
+                slot.GetComponent<CraftableItem>().Init(i + 1 + l*9, nullt);
+                slot.transform.SetParent(GameObject.Find("MainInv").transform);
+                slot.name = "Craftable Item " + (i + 1) + " Row " + (l + 1);
+            }
+        }
     }
     void Update()
     {
@@ -170,4 +184,11 @@ public struct IT
     public Texture2D Icon;
     public Mesh Mesh;
     public Material[] Material;
+}
+[System.Serializable]
+public struct craftableItem
+{
+    public string Name;
+    public string[] Ingredients;
+    public Texture2D Icon;
 }

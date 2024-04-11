@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3992688710941025260}
   - component: {fileID: 368140775879457579}
   - component: {fileID: 4409290755195990941}
-  - component: {fileID: 2231771768070402260}
-  - component: {fileID: 1568163688030809523}
+  - component: {fileID: 1813609779441890403}
+  - component: {fileID: 4121897785171078525}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -67,28 +67,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: d24751affc41855409c9747af7b5ea58, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
---- !u!114 &2231771768070402260
+--- !u!114 &1813609779441890403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809536958268948402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 149c9de3bc6ee2546874c1b19228ddfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousePosition: {x: 0, y: 0, z: 0}
   isDragging: 0
---- !u!114 &1568163688030809523
+  startPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &4121897785171078525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +105,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2231771768070402260}
+        - m_Target: {fileID: 1813609779441890403}
           m_TargetAssemblyTypeName: ItemDrag, Assembly-CSharp
           m_MethodName: Drag
-          m_Mode: 1
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

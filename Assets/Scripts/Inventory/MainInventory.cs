@@ -7,7 +7,7 @@ public class MainInventory : MonoBehaviour
     public bool InventoryOpen = false;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !PauseMenu.GameIsPaused)
         {
             InventoryOpen = !InventoryOpen;  
         }
@@ -19,9 +19,8 @@ public class MainInventory : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else{
+        else if (!PauseMenu.GameIsPaused){
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 }

@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agro: 1
+  Dead: 0
   runningaway: 0
   health: 0
 --- !u!199 &4973275162981315550
@@ -5752,7 +5753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080358335658302967}
   m_Layer: 0
-  m_Name: spine.008
+  m_Name: BleedPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5849,7 +5850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7335783540810408649}
   m_Layer: 0
-  m_Name: spine.012
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

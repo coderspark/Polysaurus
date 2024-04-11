@@ -210,33 +210,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 20660}
     - Class: 114
-      Script: {instanceID: 20864}
+      Script: {instanceID: 20920}
     - Class: 114
-      Script: {instanceID: 20922}
+      Script: {instanceID: 21052}
     - Class: 114
-      Script: {instanceID: 21054}
+      Script: {instanceID: 21178}
     - Class: 114
-      Script: {instanceID: 21180}
+      Script: {instanceID: 21330}
     - Class: 114
-      Script: {instanceID: 21332}
+      Script: {instanceID: 21620}
     - Class: 114
-      Script: {instanceID: 21622}
+      Script: {instanceID: 21638}
     - Class: 114
-      Script: {instanceID: 21640}
+      Script: {instanceID: 21654}
     - Class: 114
-      Script: {instanceID: 21656}
+      Script: {instanceID: 21782}
     - Class: 114
-      Script: {instanceID: 21784}
+      Script: {instanceID: 22138}
     - Class: 114
-      Script: {instanceID: 22140}
+      Script: {instanceID: 22308}
     - Class: 114
-      Script: {instanceID: 22310}
+      Script: {instanceID: 22366}
     - Class: 114
       Script: {instanceID: 22368}
     - Class: 114
-      Script: {instanceID: 22370}
-    - Class: 114
       Script: {instanceID: 22846}
+    - Class: 114
+      Script: {instanceID: 23468}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -280,6 +280,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 49
@@ -315,15 +317,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 20612}
     - Class: 114
-      Script: {instanceID: 21180}
+      Script: {instanceID: 21178}
     - Class: 114
-      Script: {instanceID: 21332}
+      Script: {instanceID: 21330}
     - Class: 114
-      Script: {instanceID: 21656}
+      Script: {instanceID: 21654}
     - Class: 114
-      Script: {instanceID: 22112}
+      Script: {instanceID: 22110}
     - Class: 114
-      Script: {instanceID: 22356}
+      Script: {instanceID: 22354}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -331,6 +333,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -367,7 +373,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 3b6f845fd9f01f11723f41e9fdef2552
+      Hash: 824e5e9cc9da1771371341f7435ac0a8
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: RockBehaviour
@@ -457,7 +463,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreakMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f9da66140b49749cf2adce8091136ab5
+      Hash: 9622c8c0be24e5b1b5bc4e2578785c99
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InventoryManagment
@@ -619,7 +625,7 @@ ScriptsOnlyBuild:
     className: ScriptMachine
   - hash:
       serializedVersion: 2
-      Hash: 08fd83523dea6253d874b2d2ac48432b
+      Hash: 4689dfda5b7bb5b68d13573e05ae3088
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ItemDrag
@@ -919,12 +925,6 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 5136672d9d3cae36c9c162888856784d
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: DinoRagdoll
-  - hash:
-      serializedVersion: 2
       Hash: 1ed846c1ed9d69c8c2fcff9a6896b04f
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -997,7 +997,7 @@ ScriptsOnlyBuild:
     className: Minimap
   - hash:
       serializedVersion: 2
-      Hash: 187b0e87963deb0d83c9ae3ab3f00ef9
+      Hash: 40634fbbc692c7e0de1afedf10a0a625
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: DinoAi
@@ -1159,6 +1159,12 @@ ScriptsOnlyBuild:
     className: UnityOnSubmitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 3c804a0174735dfb63c02cbd696b9270
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CraftableItem
+  - hash:
+      serializedVersion: 2
       Hash: 21458b64fdf3b1c35574c2a0e82b859d
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -1265,6 +1271,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 5136672d9d3cae36c9c162888856784d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DinoRagdoll
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

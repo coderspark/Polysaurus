@@ -1,44 +1,44 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 public class ItemDrag : MonoBehaviour
 {
-    public Vector3 mousePosition;
     public bool isDragging = false;
-    Vector3 startPos;
-    void Update()
+    public Vector3 startPosition;
+    void Start()
     {
-        mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        if (isDragging)
-        {   
-            // go to the front of the canvas	
-            transform.parent.SetAsLastSibling();
-            transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+        startPosition = transform.position;
+    }
+    public void Drag(bool calledelsewhere = false)
+    {
+        if(isDragging & calledelsewhere)
+        {
+            isDragging = false;
+            transform.position = startPosition;
+        }
+        else
+        {
+            bool NoneDragging = true;
+            foreach(Transform child in transform.parent.parent){
+                ItemDrag c = child.GetChild(3).GetComponent<ItemDrag>();
+                if(c.isDragging){
+                    c.Drag(true);
+                    GameObject.Find("Inventory").GetComponent<InventoryManagment>().SwapItems(child.GetComponent<InventorySlot>().SlotID, transform.parent.GetComponent<InventorySlot>().SlotID);
+                    NoneDragging = false;
+                }
+            }
+            if(NoneDragging)
+            {
+                isDragging = true;
+            }
         }
     }
 
-    public void Drag()
+    void Update()
     {
-        isDragging = !isDragging;
-        if(isDragging){
-            foreach(Transform child in transform.parent.parent){
-                if(child.gameObject != gameObject){
-                    Transform c = child.GetChild(3);
-                    if(c.gameObject.GetComponent<ItemDrag>().isDragging){
-                        // c.gameObject.GetComponent<ItemDrag>().isDragging = false;
-                        int id = child.gameObject.GetComponent<InventorySlot>().SlotID;
-                        InventoryManagment inv = GameObject.Find("Inventory").GetComponent<InventoryManagment>();
-                        Debug.Log(id + " " + transform.parent.gameObject.GetComponent<InventorySlot>().SlotID);
-                        inv.SwapItems(id, transform.parent.gameObject.GetComponent<InventorySlot>().SlotID);
-                        id = 0;
-                    }
-                }
-            }
-            startPos = transform.position;
+        if (isDragging)
+        {
+            Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            transform.position = new Vector3(mousePos.x-60, mousePos.y-60, 0);
+            transform.parent.SetAsLastSibling();
         }
-        else{
-            transform.position = startPos;
-        }
-        
     }
 }

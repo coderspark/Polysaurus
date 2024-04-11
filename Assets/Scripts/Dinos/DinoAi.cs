@@ -6,6 +6,7 @@ public class DinoAi : MonoBehaviour
     private Animation anim;
     private Rigidbody rb;
     public bool agro;
+    public bool Dead = false;
     float MoveSpeed= 0;
     float AgroDist = 0;
     float IdleDist = 0;
@@ -22,7 +23,7 @@ public class DinoAi : MonoBehaviour
         anim = GetComponent<Animation>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").transform;
-        
+        Dead = false;
     }
     public void Set(float MSpeed, float ADist, float IDist, string Dino, DinoManager.AgroType DinoType, float Health, float AttackDist, DinoManager.DinoType dt)
     {
@@ -54,7 +55,7 @@ public class DinoAi : MonoBehaviour
     }
     void Update()
     {
-        if (instantiated){
+        if (instantiated && !PauseMenu.GameIsPaused && !Dead){
             if (agro)
             { 
                 transform.LookAt(player);
@@ -86,7 +87,7 @@ public class DinoAi : MonoBehaviour
                         transform.eulerAngles = new Vector3(0, UnityEngine.Random.Range(0, 360), 0);
                     }
                     anim.Play(dino + "Run");
-                    rb.AddRelativeForce(Vector3.forward * 8 * Time.deltaTime, ForceMode.VelocityChange);
+                    rb.AddRelativeForce(Vector3.forward * MoveSpeed/1.5f * Time.deltaTime, ForceMode.VelocityChange);
                     if (Vector3.Distance(transform.position, player.position) < AgroDist && !readytoagro)
                     {
                         if(dinotype == DinoManager.AgroType.Agressive){
@@ -120,7 +121,15 @@ public class DinoAi : MonoBehaviour
             if(Vector3.Distance(transform.position, player.position) < 7 && Input.GetMouseButtonDown(0) && !player.GetComponent<Animation>().IsPlaying("Attack"))
             {
                 health -= 10;
-                GetComponent<ParticleSystem>().Play();
+                // get the position of the dinos head bone with a skinned mesh renderer
+                SkinnedMeshRenderer smr = this.GetComponentInChildren<SkinnedMeshRenderer>();
+                Transform[] thisBones = smr.bones;
+                foreach(Transform bone in thisBones)
+                {
+                    if (bone.name == "BleedPoint"){
+                        Game.Bleed(bone.position, new Vector3(Random.Range(-45, 45), 0, Random.Range(-45, 45)));
+                    }
+                }   
                 runningaway = false;
                 if(dinotype == DinoManager.AgroType.Neutral){
                         readytoagro = true;
@@ -131,10 +140,12 @@ public class DinoAi : MonoBehaviour
             }
             if (health <= 0)
             {
-                Destroy(gameObject);
+                if(!Dead){
+                    StartCoroutine(GetComponent<DinoRagdoll>().Ragdoll());
+                }
+                Dead = true;
             }
         }
-       
     }
     private void ApplyCounterMovement()
     {

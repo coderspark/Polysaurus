@@ -137,12 +137,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2933306188528459167}
   - component: {fileID: 28620773760779197}
-  - component: {fileID: 3175647134236743494}
   - component: {fileID: 7318400059559621040}
   - component: {fileID: 6702699664359712635}
   - component: {fileID: 1031937044988415586}
   - component: {fileID: -8251881338893614207}
   - component: {fileID: -7307776902500181953}
+  - component: {fileID: 3287943987102621301}
   m_Layer: 0
   m_Name: Pteranodon
   m_TagString: Untagged
@@ -187,27 +187,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 1
---- !u!65 &3175647134236743494
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634738952260485312}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7318400059559621040
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agro: 0
+  Dead: 0
   runningaway: 0
   health: 0
 --- !u!199 &1031937044988415586
@@ -5116,6 +5096,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rig: {fileID: 6899835771608402314}
+--- !u!136 &3287943987102621301
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634738952260485312}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2011463749484612068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5781,7 +5784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6458648389079342610}
   m_Layer: 0
-  m_Name: spine.013
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5908,7 +5911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9131779250775135491}
   m_Layer: 0
-  m_Name: spine.009
+  m_Name: BleedPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

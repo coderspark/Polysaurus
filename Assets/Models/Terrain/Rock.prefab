@@ -97,3 +97,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: Rock
+  Min: 2147483647
+  Max: 2147483647

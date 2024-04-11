@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         // unlock the cursor
         Cursor.lockState = CursorLockMode.None;
+        GameObject.Find("MainInv").GetComponent<MainInventory>().InventoryOpen = false;
     }
     public void Exit(){
         SceneManager.LoadScene("Main Menu");

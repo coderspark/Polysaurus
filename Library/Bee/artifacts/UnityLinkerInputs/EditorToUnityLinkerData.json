@@ -640,7 +640,8 @@
             "fullManagedTypeName": "UnityEngine.Mesh",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/Main Level.unity"
+                "Assets/Scenes/Main Level.unity",
+                "Assets/Scenes/Main Menu.unity"
             ]
         },
         {
@@ -705,7 +706,8 @@
             "fullManagedTypeName": "UnityEngine.ParticleSystem",
             "moduleName": "ParticleSystem",
             "usedInScenes": [
-                "Assets/Scenes/Main Level.unity"
+                "Assets/Scenes/Main Level.unity",
+                "Assets/Scenes/Main Menu.unity"
             ]
         },
         {
@@ -714,7 +716,8 @@
             "fullManagedTypeName": "UnityEngine.ParticleSystemRenderer",
             "moduleName": "ParticleSystem",
             "usedInScenes": [
-                "Assets/Scenes/Main Level.unity"
+                "Assets/Scenes/Main Level.unity",
+                "Assets/Scenes/Main Menu.unity"
             ]
         },
         {
@@ -740,7 +743,8 @@
             "fullManagedTypeName": "UnityEngine.Renderer",
             "moduleName": "Core",
             "usedInScenes": [
-                "Assets/Scenes/Main Level.unity"
+                "Assets/Scenes/Main Level.unity",
+                "Assets/Scenes/Main Menu.unity"
             ]
         },
         {
