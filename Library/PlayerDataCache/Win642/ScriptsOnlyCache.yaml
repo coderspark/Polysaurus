@@ -1,12 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Bush
+    - ConsoleCommand
     - DinoAi
     - DinoManager
-    - DinoRagdoll
     - EndlessTerrain
+    - HealthBar
     - HoldedItem
+    - HungerBar
     - InventoryManagment
     - InventorySlot
     - ItemDrag
@@ -20,9 +21,9 @@ ScriptsOnlyBuild:
     - PauseMenu
     - PlayerMovement
     - ResourceGenerator
-    - RockBehaviour
+    - ResourceOnMap
     - SlotSelect
-    - TreeBehaviour
+    - UnderWaterTint
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -32,6 +33,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -49,15 +51,19 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
   serializedClasses:
     Assembly-CSharp:
     - .Dino
+    - .Drop
     - .EndlessTerrain/LODInfo
     - .IT
+    - .Recipe
     - .Resource
     - .Slot
     - .TerrainType
@@ -71,6 +77,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -127,6 +138,12 @@ ScriptsOnlyBuild:
     fullTypeName: PauseMenu
     methodName: Resume
   - assembly: Assembly-CSharp
+    fullTypeName: ConsoleCommand
+    methodName: Parse
+  - assembly: Assembly-CSharp
+    fullTypeName: ConsoleCommand
+    methodName: Run
+  - assembly: Assembly-CSharp
     fullTypeName: PauseMenu
     methodName: Exit
   sceneClasses:
@@ -178,7 +195,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17192}
     - Class: 114
-      Script: {instanceID: 17252}
+      Script: {instanceID: 17320}
     - Class: 114
       Script: {instanceID: 17386}
     - Class: 114
@@ -194,49 +211,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18682}
     - Class: 114
-      Script: {instanceID: 18788}
+      Script: {instanceID: 18926}
     - Class: 114
-      Script: {instanceID: 18924}
+      Script: {instanceID: 19056}
     - Class: 114
-      Script: {instanceID: 19390}
+      Script: {instanceID: 19372}
     - Class: 114
-      Script: {instanceID: 19436}
+      Script: {instanceID: 19400}
     - Class: 114
-      Script: {instanceID: 19592}
+      Script: {instanceID: 19446}
     - Class: 114
-      Script: {instanceID: 19622}
+      Script: {instanceID: 19558}
     - Class: 114
-      Script: {instanceID: 20612}
+      Script: {instanceID: 19604}
     - Class: 114
-      Script: {instanceID: 20660}
+      Script: {instanceID: 19634}
     - Class: 114
-      Script: {instanceID: 20920}
+      Script: {instanceID: 19668}
     - Class: 114
-      Script: {instanceID: 21052}
+      Script: {instanceID: 20446}
     - Class: 114
-      Script: {instanceID: 21178}
+      Script: {instanceID: 20624}
     - Class: 114
-      Script: {instanceID: 21330}
+      Script: {instanceID: 20672}
     - Class: 114
-      Script: {instanceID: 21620}
+      Script: {instanceID: 20934}
     - Class: 114
-      Script: {instanceID: 21638}
+      Script: {instanceID: 21066}
     - Class: 114
-      Script: {instanceID: 21654}
+      Script: {instanceID: 21192}
     - Class: 114
-      Script: {instanceID: 21782}
+      Script: {instanceID: 21344}
     - Class: 114
-      Script: {instanceID: 22138}
+      Script: {instanceID: 21634}
     - Class: 114
-      Script: {instanceID: 22308}
+      Script: {instanceID: 21652}
     - Class: 114
-      Script: {instanceID: 22366}
+      Script: {instanceID: 21668}
     - Class: 114
-      Script: {instanceID: 22368}
+      Script: {instanceID: 21796}
     - Class: 114
-      Script: {instanceID: 22846}
+      Script: {instanceID: 22152}
     - Class: 114
-      Script: {instanceID: 23468}
+      Script: {instanceID: 22380}
+    - Class: 114
+      Script: {instanceID: 22382}
+    - Class: 114
+      Script: {instanceID: 22400}
+    - Class: 114
+      Script: {instanceID: 22862}
+    - Class: 114
+      Script: {instanceID: 25446}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -309,23 +334,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18682}
     - Class: 114
-      Script: {instanceID: 19672}
+      Script: {instanceID: 19684}
     - Class: 114
-      Script: {instanceID: 19918}
+      Script: {instanceID: 19930}
     - Class: 114
-      Script: {instanceID: 20542}
+      Script: {instanceID: 20554}
     - Class: 114
-      Script: {instanceID: 20612}
+      Script: {instanceID: 20624}
     - Class: 114
-      Script: {instanceID: 21178}
+      Script: {instanceID: 21192}
     - Class: 114
-      Script: {instanceID: 21330}
+      Script: {instanceID: 21344}
     - Class: 114
-      Script: {instanceID: 21654}
+      Script: {instanceID: 21668}
     - Class: 114
-      Script: {instanceID: 22110}
+      Script: {instanceID: 22124}
     - Class: 114
-      Script: {instanceID: 22354}
+      Script: {instanceID: 22368}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -463,7 +488,7 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreakMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 9622c8c0be24e5b1b5bc4e2578785c99
+      Hash: 9d710f8377dd3d616b875d7140d428ca
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InventoryManagment
@@ -619,6 +644,12 @@ ScriptsOnlyBuild:
     className: VariablesAsset
   - hash:
       serializedVersion: 2
+      Hash: e957c1b42fb0e70b262f288a92fe2249
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Craftable
+  - hash:
+      serializedVersion: 2
       Hash: f6831ac80ec81c5d5b370c0ed0fee997
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -641,6 +672,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: db2e6a9e8576281efdbe086fcc0eb184
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: UnderWaterTint
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -685,6 +722,12 @@ ScriptsOnlyBuild:
     className: UnityOnPointerExitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ResourceOnMap
+  - hash:
+      serializedVersion: 2
       Hash: a9f39276461e88f5226e7b1b6eb69ee1
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -695,6 +738,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HungerBar
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -733,7 +782,7 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 971493fd5b87790c02cbca25cc13c62a
+      Hash: f9b6d18b45e4e77ad4c11d7b7c4579ca
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ResourceGenerator
@@ -925,6 +974,12 @@ ScriptsOnlyBuild:
     className: UnityOnDeselectMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 5136672d9d3cae36c9c162888856784d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DinoRagdoll
+  - hash:
+      serializedVersion: 2
       Hash: 1ed846c1ed9d69c8c2fcff9a6896b04f
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -943,7 +998,7 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
-      Hash: 3a5b589b8d6358a04adb2e16469b089d
+      Hash: bc55b5a0f737a6e4638a0716e0714b71
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PlayerMovement
@@ -997,7 +1052,7 @@ ScriptsOnlyBuild:
     className: Minimap
   - hash:
       serializedVersion: 2
-      Hash: 40634fbbc692c7e0de1afedf10a0a625
+      Hash: a5dbd3b197c3b310bff28fd93adf5e0f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: DinoAi
@@ -1154,15 +1209,15 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HealthBar
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSubmitMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 3c804a0174735dfb63c02cbd696b9270
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CraftableItem
   - hash:
       serializedVersion: 2
       Hash: 21458b64fdf3b1c35574c2a0e82b859d
@@ -1175,6 +1230,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 5e26e290ffb6165125fcb8985abb1151
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CraftingBoard
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1195,7 +1256,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: f139dff07df4f7b601094a922bee54f1
+      Hash: 551fb29fb82be8effd9259e40a32cf55
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: DinoManager
@@ -1273,10 +1334,10 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 5136672d9d3cae36c9c162888856784d
+      Hash: ca9d633cd243e6ae09025dd5af7e7f23
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: DinoRagdoll
+    className: ConsoleCommand
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using System.Linq;
 
 public class InventoryManagment : MonoBehaviour
@@ -8,17 +9,19 @@ public class InventoryManagment : MonoBehaviour
     public int Selectedslot = 1;
     public GameObject HBSlot;
     public GameObject MISlot;
+    public GameObject CRSlot;
     public Color BaseColor;
     public Color SelectedColor;
     public Slot[] inventory;
     public Slot[] hotbar;
-    public craftableItem[] craftableItems;
     public IT[] itemDataBase;
+    public string[] craftableItems;
     public Texture2D nullt;
     public bool draggingitem = false;
     public int maxItems;
     void Start()
     {
+        itemDataBase[0].Mesh = new Mesh();
         // set the hotbar to the last 9 slots of the inventory
         hotbar = inventory.TakeLast(9).ToArray();
         Hotbar();
@@ -47,19 +50,15 @@ public class InventoryManagment : MonoBehaviour
                 slot.name = "Slot " + (i + 1) + " Row " + (l + 1);
             }
     }
-    void Craftableitems()
-    {
-        for (int l = 0; l < 4; l += 1){
-            for (int i = 0; i < 9; i += 1)
-            {
-                // create a new childed object of the slot
-                GameObject slot = Instantiate(MISlot, new Vector3(400 + i * 66, 300 + (3 - l) * 66, 0), Quaternion.identity);
-                slot.GetComponent<CraftableItem>().Init(i + 1 + l*9, nullt);
-                slot.transform.SetParent(GameObject.Find("MainInv").transform);
-                slot.name = "Craftable Item " + (i + 1) + " Row " + (l + 1);
-            }
-        }
-    }
+    // void Craftableitems()
+    // {
+    //     GameObject cb = GameObject.Find("CraftingBoard")
+    //     foreach(IT i in itemDataBase){
+    //         if(IT.Craftable == true){
+    //             Instantiate(CRSlot);
+    //         }
+    //     }
+    // }
     void Update()
     {
         hotbar = inventory.TakeLast(9).ToArray();
@@ -107,6 +106,13 @@ public class InventoryManagment : MonoBehaviour
         foreach(Transform child in GameObject.Find("MainInv").transform)
         {
             child.GetComponent<InventorySlot>().Init(child.GetComponent<InventorySlot>().SlotID, inventory[child.GetComponent<InventorySlot>().SlotID - 1].Icon, inventory[child.GetComponent<InventorySlot>().SlotID - 1].Amount);
+        }
+        foreach(Slot item in inventory){
+            Slot i = inventory[System.Array.IndexOf(inventory, item)];
+            if(i.Amount == 0){
+                i.Name = "";
+                i.Icon = nullt;
+            }
         }
     }
     public void SwapItems(int slot1, int slot2)
@@ -169,11 +175,29 @@ public class InventoryManagment : MonoBehaviour
             }
         }
     }
+    public void RemoveItem(int slot, int amount){
+        inventory[slot - 1].Amount -= amount;
+        if(inventory[slot - 1].Amount < 0){
+            inventory[slot - 1].Amount = 0;
+        }
+        if (inventory[slot - 1].Amount == 0)
+        {
+            inventory[slot - 1].Name = "";
+            inventory[slot - 1].Icon = nullt;
+            inventory[slot - 1].Amount = 0;
+        }
+    }
 }
 [System.Serializable]
 public struct Slot
 {
     public Texture2D Icon;
+    public string Name;
+    public int Amount;
+}
+[System.Serializable]
+public struct Recipe
+{
     public string Name;
     public int Amount;
 }
@@ -184,11 +208,6 @@ public struct IT
     public Texture2D Icon;
     public Mesh Mesh;
     public Material[] Material;
-}
-[System.Serializable]
-public struct craftableItem
-{
-    public string Name;
-    public string[] Ingredients;
-    public Texture2D Icon;
+    public bool Craftable;
+    public Recipe[] Recipe;
 }

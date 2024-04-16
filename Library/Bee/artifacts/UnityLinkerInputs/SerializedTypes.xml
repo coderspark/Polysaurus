@@ -1,8 +1,10 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname=".Dino" preserve="nothing" serialized="true"/>
+		<type fullname=".Drop" preserve="nothing" serialized="true"/>
 		<type fullname=".EndlessTerrain/LODInfo" preserve="nothing" serialized="true"/>
 		<type fullname=".IT" preserve="nothing" serialized="true"/>
+		<type fullname=".Recipe" preserve="nothing" serialized="true"/>
 		<type fullname=".Resource" preserve="nothing" serialized="true"/>
 		<type fullname=".Slot" preserve="nothing" serialized="true"/>
 		<type fullname=".TerrainType" preserve="nothing" serialized="true"/>
@@ -17,6 +19,11 @@
 		<type fullname="TMPro.TMP_GlyphAdjustmentRecord" preserve="nothing" serialized="true"/>
 		<type fullname="TMPro.TMP_GlyphPairAdjustmentRecord" preserve="nothing" serialized="true"/>
 		<type fullname="TMPro.TMP_GlyphValueRecord" preserve="nothing" serialized="true"/>
+		<type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true"/>
+		<type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true"/>
+		<type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true"/>
+		<type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true"/>
+		<type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true"/>
 		<type fullname="TMPro.TMP_Sprite" preserve="nothing" serialized="true"/>
 		<type fullname="TMPro.TMP_SpriteCharacter" preserve="nothing" serialized="true"/>
 		<type fullname="TMPro.TMP_SpriteGlyph" preserve="nothing" serialized="true"/>

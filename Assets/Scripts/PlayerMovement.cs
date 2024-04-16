@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     private int randint;
     public float distance;
     
+    // stats
+    public float health = 100;
+    public float hunger = 100;
+
     void Awake()
     {
         rotationSpeed = OptionsMenu.sensetivity;
@@ -93,6 +97,22 @@ public class PlayerMovement : MonoBehaviour
         {
             HoldedItem inv;
             inv = GameObject.Find("Holded Item").GetComponent<HoldedItem>();
+            if (inv.CurrentItem == "Strawberry" || inv.CurrentItem == "Banana" || inv.CurrentItem == "RawMeat"){
+                if (hunger < 99){
+                    hunger += 5;
+                }
+                health += 4;
+                if(health > 100)
+                {
+                    health = 100;
+                }
+                if(hunger > 100)
+                {
+                    hunger = 100;
+                }
+                InventoryManagment inm = GameObject.Find("Inventory").GetComponent<InventoryManagment>();
+                inm.RemoveItem(inm.Selectedslot+27, 1);
+            }
             if(inv.CurrentItem != "None")
             { 
                 if (randint == 1)
@@ -199,5 +219,13 @@ public class PlayerMovement : MonoBehaviour
         if(!anim.IsPlaying("AttackLeft") && !anim.IsPlaying("AttackRight") && !PauseMenu.GameIsPaused){Movement();}
         RotateCamera();
         Animate();
+        hunger -= 0.9f * Time.deltaTime;
+        if(health<0){
+            health = 0;
+        }
+        if(hunger<0){
+            hunger = 0;
+            health -= 1.5f * Time.deltaTime;
+        }
     }  
 }

@@ -1,11 +1,12 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
-		<type fullname="Bush" preserve="nothing"/>
+		<type fullname="ConsoleCommand" preserve="nothing"/>
 		<type fullname="DinoAi" preserve="nothing"/>
 		<type fullname="DinoManager" preserve="nothing"/>
-		<type fullname="DinoRagdoll" preserve="nothing"/>
 		<type fullname="EndlessTerrain" preserve="nothing"/>
+		<type fullname="HealthBar" preserve="nothing"/>
 		<type fullname="HoldedItem" preserve="nothing"/>
+		<type fullname="HungerBar" preserve="nothing"/>
 		<type fullname="InventoryManagment" preserve="nothing"/>
 		<type fullname="InventorySlot" preserve="nothing"/>
 		<type fullname="ItemDrag" preserve="nothing"/>
@@ -19,13 +20,14 @@
 		<type fullname="PauseMenu" preserve="nothing"/>
 		<type fullname="PlayerMovement" preserve="nothing"/>
 		<type fullname="ResourceGenerator" preserve="nothing"/>
-		<type fullname="RockBehaviour" preserve="nothing"/>
+		<type fullname="ResourceOnMap" preserve="nothing"/>
 		<type fullname="SlotSelect" preserve="nothing"/>
-		<type fullname="TreeBehaviour" preserve="nothing"/>
+		<type fullname="UnderWaterTint" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Unity.TextMeshPro">
 		<type fullname="TMPro.TextMeshProUGUI" preserve="nothing"/>
 		<type fullname="TMPro.TMP_FontAsset" preserve="nothing"/>
+		<type fullname="TMPro.TMP_InputField" preserve="nothing"/>
 		<type fullname="TMPro.TMP_Settings" preserve="nothing"/>
 		<type fullname="TMPro.TMP_SpriteAsset" preserve="nothing"/>
 		<type fullname="TMPro.TMP_StyleSheet" preserve="nothing"/>
@@ -97,8 +99,10 @@
 		<type fullname="UnityEngine.UI.CanvasScaler" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.GraphicRaycaster" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Image" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.LayoutElement" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Mask" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.RawImage" preserve="nothing"/>
+		<type fullname="UnityEngine.UI.RectMask2D" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Shadow" preserve="nothing"/>
 		<type fullname="UnityEngine.UI.Slider" preserve="nothing"/>
 	</assembly>

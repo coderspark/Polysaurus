@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2295527254236248931}
   - component: {fileID: 7950787701701629583}
   - component: {fileID: 7037190772516290892}
-  - component: {fileID: 4819334820433845591}
+  - component: {fileID: 5818709374728190029}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4819334820433845591
+--- !u!114 &5818709374728190029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,9 +93,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6013328275829917823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dd67d23f286abf48983c5aedabe73e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 37d05587c0059c94db235d824753c739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: Rock
-  Min: 2147483647
-  Max: 2147483647
